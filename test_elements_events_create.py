@@ -2,12 +2,24 @@ from pages.main_page import MainPage
 from pages.events_page import EventsPage
 
 def test_elements_events_create(browser): # тест на проверку наличия элементов модального окна "Создание ивента"
-    page_home = MainPage(browser, MainPage.url) # инициализируем Page Object, передаем в конструктор экземпляр драйвера и url
-    page_home.open()  # открываем страницу авторизации
-    page_home.go_to_campaigns_page() # выполняем метод страницы — переходим на страницу кампаний
-    page_events = EventsPage(browser, EventsPage.url) # инициализируем Page Object, передаем в конструктор экземпляр драйвера и url
-    page_events.open() # открываем страницу событий
-    page_events.click_button() # нажимаем на кнопку "Добавить"
+
+    # инициализируем Page Object, передаем в конструктор экземпляр драйвера и url
+    page_home = MainPage(browser, MainPage.url)
+
+    # открываем страницу авторизации и переходим на страницу кампаний
+    page_home.open()
+    page_home.go_to_campaigns_page()
+
+    # инициализируем Page Object, передаем в конструктор экземпляр драйвера и url
+    page_events = EventsPage(browser, EventsPage.url)
+
+    # открываем страницу событий
+    page_events.open()
+
+    # нажимаем на кнопку "Добавить"
+    page_events.click_button()
+
+    # проверяем элементы модального окна
     page_events.assert_form_creation() # проверяем, что модальное окно отображается
     page_events.assert_header_creation() # проверяем, что в модальном окне присутствует заголовок "Создание"
     page_events.assert_close_creation() # проверяем, что в модальном окне присутствует кнопка "Крестик"

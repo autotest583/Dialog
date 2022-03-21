@@ -4,7 +4,7 @@ from pages.locators import MainPageLocators
 
 class MainPage(BasePage):
 
-    url = "https://nsstage.skillbox.ru/#/login?redirect=%2Fcampaigns%2Findex"
+    url = "https://nsstage.skillbox.ru"
 
     def go_to_campaigns_page(self): # метод реализует авторизацию и переход к странице "Кампании"
         login = self.browser.find_element(*MainPageLocators.login_button)

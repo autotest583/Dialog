@@ -1,6 +1,10 @@
 from selenium.webdriver.common.by import By
 
 class MainPageLocators(): # класс описывает локаторы страницы авторизации
+    title = (By.CSS_SELECTOR, 'h3[class="title"]')  # заголовок "Login Form"
+    login_input = (By.CSS_SELECTOR, 'input[name="username"]')  # поле ввода login
+    login_password = (By.CSS_SELECTOR, 'input[name="password"]')  # поле ввода password
+    show_password = (By.CSS_SELECTOR, 'span[class="show-pwd"]')  # маскировка пароля
     login_button = (By.CSS_SELECTOR, 'button[class="el-button el-button--primary el-button--medium"]') # кнопка "Login"
 
 class EventsPageLocators(): # класс описывает локаторы страницы "События"
